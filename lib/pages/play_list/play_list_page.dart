@@ -21,13 +21,27 @@ class PlayListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Funday')),
-      body: BlocProvider(
-        create: (_) => GetPlayListBloc.dio(
+      body: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (_) => GetPlayListBloc.dio(
               dio: dio,
-            ),
-          )..interceptors.add(LoggerInterceptor()),
-        )..add(GetPlayListQuery(page: 1, lang: 'zh-tw')),
-        child: const PlayListView(),
+            )..add(const GetPlayListQuery(page: 1, lang: 'zh-tw')),
+          ),
+          BlocProvider(
+            create: (_) => DownloadBloc(dio: dio),
+          ),
+        ],
+        child: BlocListener<GetPlayListBloc, GetPlayListState>(
+          listener: (context, state) {
+            if (state.status == Status.success && state.playListItem != null) {
+              context
+                  .read<DownloadBloc>()
+                  .add(DownloadCheckStatus(items: state.playListItem!));
+            }
+          },
+          child: const PlayListView(),
+        ),
       ),
     );
   }
