@@ -37,7 +37,7 @@ class PlayListView extends StatelessWidget {
                 color: ColorName.color9e9e9e,
               ),
               itemBuilder: (context, index) {
-                return PlayListTile(item: items[index], isPlay: index == 0);
+                return PlayListTile(item: items[index]);
               },
             );
         }
