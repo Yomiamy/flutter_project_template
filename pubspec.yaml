@@ -41,10 +41,21 @@ dev_dependencies:
   # L10n
   intl_utils: ^2.8.11
 
+  # Assets
+  flutter_gen_runner: ^5.8.0
+
 flutter:
   uses-material-design: true
   generate: true
+  assets:
+    - assets/colors.xml
+
+flutter_gen:
+  colors:
+    inputs:
+      - assets/colors.xml
 
 flutter_intl:
   enabled: true
+
 
