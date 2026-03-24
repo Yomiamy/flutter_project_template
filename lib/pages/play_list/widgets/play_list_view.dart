@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_home_work/bloc/play_list/play_list.dart';
-import 'package:flutter_home_work/bloc/status.dart';
-import 'package:flutter_home_work/constants/sizes.dart';
+import 'package:flutter_home_work/bloc/bloc.dart';
+import 'package:flutter_home_work/constants/constants.dart';
 import 'package:flutter_home_work/pages/play_list/widgets/widgets.dart';
 import 'package:flutter_home_work/gen/colors.gen.dart';
 
@@ -38,7 +37,7 @@ class PlayListView extends StatelessWidget {
                 color: ColorName.color9e9e9e,
               ),
               itemBuilder: (context, index) {
-                return PlayListTile(item: items[index], isPlay: index == 0);
+                return PlayListTile(item: items[index]);
               },
             );
         }
