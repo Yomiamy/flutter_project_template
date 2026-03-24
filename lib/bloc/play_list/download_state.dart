@@ -1,5 +1,4 @@
-import 'package:equatable/equatable.dart';
-import 'package:flutter_home_work/bloc/status.dart';
+part of 'download_bloc.dart';
 
 class DownloadState extends Equatable {
   final Status status;

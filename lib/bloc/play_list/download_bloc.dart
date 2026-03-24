@@ -2,14 +2,15 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_home_work/bloc/status.dart';
 import 'package:flutter_home_work/data/paly_list/dto/dto.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart';
 
-import 'download_event.dart';
-import 'download_state.dart';
+part 'download_event.dart';
+part 'download_state.dart';
 
 class DownloadBloc extends Bloc<DownloadEvent, DownloadState> {
   final Dio _dio;

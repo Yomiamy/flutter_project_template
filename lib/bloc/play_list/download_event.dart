@@ -1,5 +1,4 @@
-import 'package:equatable/equatable.dart';
-import 'package:flutter_home_work/data/paly_list/dto/play_list_item.dart';
+part of 'download_bloc.dart';
 
 abstract class DownloadEvent extends Equatable {
   const DownloadEvent();
