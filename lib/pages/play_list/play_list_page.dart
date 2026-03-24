@@ -5,6 +5,15 @@ import 'package:flutter_home_work/bloc/bloc.dart';
 import 'package:flutter_home_work/network/interceptors/log_interceptor.dart';
 import 'package:flutter_home_work/pages/play_list/widgets/widgets.dart';
 
+final dio = Dio(
+  BaseOptions(
+    baseUrl: 'https://www.travel.taipei',
+    connectTimeout: const Duration(seconds: 30),
+    receiveTimeout: const Duration(seconds: 30),
+    headers: {'Accept': 'application/json'},
+  ),
+)..interceptors.add(LoggerInterceptor());
+
 class PlayListPage extends StatelessWidget {
   const PlayListPage({super.key});
 
@@ -14,12 +23,7 @@ class PlayListPage extends StatelessWidget {
       appBar: AppBar(title: const Text('Funday')),
       body: BlocProvider(
         create: (_) => GetPlayListBloc.dio(
-          dio: Dio(
-            BaseOptions(
-              baseUrl: 'https://www.travel.taipei',
-              connectTimeout: const Duration(seconds: 30),
-              receiveTimeout: const Duration(seconds: 30),
-              headers: {'Accept': 'application/json'},
+              dio: dio,
             ),
           )..interceptors.add(LoggerInterceptor()),
         )..add(GetPlayListQuery(page: 1, lang: 'zh-tw')),
