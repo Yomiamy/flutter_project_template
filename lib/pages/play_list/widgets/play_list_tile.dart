@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_home_work/constants/sizes.dart';
 import 'package:flutter_home_work/data/paly_list/dto/dto.dart';
 import 'package:flutter_home_work/generated/l10n.dart';
+import 'package:flutter_home_work/gen/colors.gen.dart';
 
 class PlayListTile extends StatelessWidget {
   final bool isPlay;
@@ -15,7 +17,10 @@ class PlayListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+      padding: const EdgeInsets.symmetric(
+        horizontal: Sizes.paddingL,
+        vertical: Sizes.paddingM,
+      ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -23,23 +28,23 @@ class PlayListTile extends StatelessWidget {
             child: Text(
               item.title ?? '',
               style: const TextStyle(
-                fontSize: 16,
+                fontSize: Sizes.fontSizeM,
                 fontWeight: FontWeight.bold,
-                color: Color(0xFF333333),
+                color: ColorName.color333333,
               ),
             ),
           ),
-          const SizedBox(width: 16),
+          const SizedBox(width: Sizes.paddingL),
           Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               _ActionButton(isPlay: isPlay),
-              const SizedBox(height: 4),
+              const SizedBox(height: Sizes.paddingXS),
               Text(
                 item.modified ?? '',
                 style: const TextStyle(
-                  fontSize: 12,
-                  color: Colors.grey,
+                  color: ColorName.color9e9e9e,
+                  fontSize: Sizes.fontSizeS,
                 ),
               ),
             ],
@@ -58,27 +63,30 @@ class _ActionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+      padding: const EdgeInsets.symmetric(
+        horizontal: Sizes.paddingM,
+        vertical: Sizes.paddingXS,
+      ),
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(4),
-        border: Border.all(color: Colors.grey.withValues(alpha: 0.3)),
+        border: Border.all(color: ColorName.color4d9e9e9e),
+        color: ColorName.colorFfffff,
+        borderRadius: BorderRadius.circular(Sizes.radiusS),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
           Icon(
             isPlay ? Icons.play_arrow : Icons.download_sharp,
-            size: 16,
-            color: Colors.black87,
+            size: Sizes.iconS,
+            color: ColorName.colorDe00000,
           ),
-          const SizedBox(width: 4),
+          const SizedBox(width: Sizes.paddingXS),
           Text(
             isPlay ? S.of(context).play : S.of(context).download,
             style: const TextStyle(
-              fontSize: 12,
+              fontSize: Sizes.fontSizeS,
               fontWeight: FontWeight.w500,
-              color: Colors.black87,
+              color: ColorName.colorDe00000,
             ),
           ),
         ],
@@ -86,3 +94,6 @@ class _ActionButton extends StatelessWidget {
     );
   }
 }
+
+
+
