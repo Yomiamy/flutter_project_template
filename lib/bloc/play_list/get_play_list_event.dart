@@ -1,17 +1,21 @@
 part of 'get_play_list_bloc.dart';
 
 sealed class GetPlayListEvent extends Equatable {
+  const GetPlayListEvent();
+
   @override
   List<Object?> get props => [];
 }
 
-class GetPlayListInit extends GetPlayListEvent {}
+class GetPlayListInit extends GetPlayListEvent {
+  const GetPlayListInit();
+}
 
 class GetPlayListQuery extends GetPlayListEvent {
   final int page;
   final String lang;
 
-  GetPlayListQuery({required this.page, required this.lang});
+  const GetPlayListQuery({required this.page, required this.lang});
 
   @override
   List<Object?> get props => [page];
@@ -20,7 +24,7 @@ class GetPlayListQuery extends GetPlayListEvent {
 class GetPlayListSuccess extends GetPlayListEvent {
   final List<PlayListItem> playListItem;
 
-  GetPlayListSuccess({required this.playListItem});
+  const GetPlayListSuccess({required this.playListItem});
 
   @override
   List<Object?> get props => [playListItem];  
@@ -29,7 +33,7 @@ class GetPlayListSuccess extends GetPlayListEvent {
 class GetPlayListFail extends GetPlayListEvent {
   final String message;
 
-  GetPlayListFail({required this.message});
+  const GetPlayListFail({required this.message});
 
   @override
   List<Object?> get props => [message];
