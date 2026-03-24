@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_home_work/constants/sizes.dart';
+import 'package:flutter_home_work/constants/constants.dart';
 import 'package:flutter_home_work/data/paly_list/dto/dto.dart';
 import 'package:flutter_home_work/generated/l10n.dart';
 import 'package:flutter_home_work/gen/colors.gen.dart';
