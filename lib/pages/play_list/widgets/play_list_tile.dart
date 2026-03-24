@@ -5,6 +5,7 @@ import 'package:flutter_home_work/generated/l10n.dart';
 import 'package:flutter_home_work/gen/colors.gen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_home_work/bloc/play_list/play_list.dart';
+import 'package:flutter_home_work/extensions/download_state_x.dart';
 
 class PlayListTile extends StatelessWidget {
   final PlayListItem item;
@@ -18,9 +19,9 @@ class PlayListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<DownloadBloc, DownloadState>(
       builder: (context, state) {
-        final isDownloaded = state.downloadedIds.contains(item.id);
-        final downloadProgress = state.progress[item.id];
-        final isDownloading = downloadProgress != null;
+        final isDownloaded = state.isDownloaded(item.id);
+        final downloadProgress = state.getDownloadProgress(item.id);
+        final isDownloading = state.isDownloading(item.id);
 
         return Padding(
           padding: const EdgeInsets.symmetric(
