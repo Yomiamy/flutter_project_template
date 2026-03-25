@@ -23,6 +23,10 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "download": MessageLookupByLibrary.simpleMessage("下載"),
+    "funday": MessageLookupByLibrary.simpleMessage("Funday"),
+    "load_failed": MessageLookupByLibrary.simpleMessage("加載失敗請重開"),
+    "no_data": MessageLookupByLibrary.simpleMessage("沒有資料"),
+    "no_more_data": MessageLookupByLibrary.simpleMessage("沒有更多資料"),
     "play": MessageLookupByLibrary.simpleMessage("播放"),
   };
 }

@@ -12,22 +12,27 @@ class GetPlayListInit extends GetPlayListEvent {
 }
 
 class GetPlayListQuery extends GetPlayListEvent {
-  final int page;
   final String lang;
 
-  const GetPlayListQuery({required this.page, required this.lang});
+  const GetPlayListQuery({required this.lang});
 
   @override
-  List<Object?> get props => [page];
+  List<Object?> get props => [lang];
 }
 
 class GetPlayListSuccess extends GetPlayListEvent {
   final List<PlayListItem> playListItem;
+  final int page;
+  final int? total;
 
-  const GetPlayListSuccess({required this.playListItem});
+  const GetPlayListSuccess({
+    required this.playListItem,
+    required this.page,
+    this.total,
+  });
 
   @override
-  List<Object?> get props => [playListItem];  
+  List<Object?> get props => [playListItem, page, total];
 }
 
 class GetPlayListFail extends GetPlayListEvent {

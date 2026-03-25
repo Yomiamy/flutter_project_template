@@ -1,18 +1,11 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_home_work/bloc/bloc.dart';
-import 'package:flutter_home_work/network/interceptors/log_interceptor.dart';
-import 'package:flutter_home_work/pages/play_list/widgets/widgets.dart';
 
-final dio = Dio(
-  BaseOptions(
-    baseUrl: 'https://www.travel.taipei',
-    connectTimeout: const Duration(seconds: 30),
-    receiveTimeout: const Duration(seconds: 30),
-    headers: {'Accept': 'application/json'},
-  ),
-)..interceptors.add(LoggerInterceptor());
+import 'package:flutter_home_work/pages/play_list/widgets/widgets.dart';
+import 'package:flutter_home_work/generated/l10n.dart';
+
+import 'package:flutter_home_work/network/network.dart';
 
 class PlayListPage extends StatelessWidget {
   const PlayListPage({super.key});
@@ -20,24 +13,22 @@ class PlayListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Funday')),
+      appBar: AppBar(title: Text(S.of(context).funday)),
       body: MultiBlocProvider(
         providers: [
           BlocProvider(
-            create: (_) => GetPlayListBloc.dio(
-              dio: dio,
-            )..add(const GetPlayListQuery(page: 1, lang: 'zh-tw')),
+            create: (_) =>
+                GetPlayListBloc.dio(dio: DioProvider.dio)
+                  ..add(const GetPlayListQuery(lang: 'zh-tw')),
           ),
-          BlocProvider(
-            create: (_) => DownloadBloc(dio: dio),
-          ),
+          BlocProvider(create: (_) => DownloadBloc(dio: DioProvider.dio)),
         ],
         child: BlocListener<GetPlayListBloc, GetPlayListState>(
           listener: (context, state) {
             if (state.status == Status.success && state.playListItem != null) {
-              context
-                  .read<DownloadBloc>()
-                  .add(DownloadCheckStatus(items: state.playListItem!));
+              context.read<DownloadBloc>().add(
+                DownloadCheckStatus(items: state.playListItem!),
+              );
             }
           },
           child: const PlayListView(),
