@@ -1,5 +1,9 @@
 {
   "@@locale": "en",
   "play": "Play",
-  "download": "Download"
+  "download": "Download",
+  "load_failed": "Failed to load please restart",
+  "no_data": "No data",
+  "no_more_data": "No more data",
+  "funday": "Funday"
 }

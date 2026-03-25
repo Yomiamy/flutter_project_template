@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_home_work/bloc/bloc.dart';
 import 'package:flutter_home_work/network/interceptors/log_interceptor.dart';
 import 'package:flutter_home_work/pages/play_list/widgets/widgets.dart';
+import 'package:flutter_home_work/generated/l10n.dart';
 
 final dio = Dio(
   BaseOptions(
@@ -20,13 +21,13 @@ class PlayListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Funday')),
+      appBar: AppBar(title: Text(S.of(context).funday)),
       body: MultiBlocProvider(
         providers: [
           BlocProvider(
             create: (_) => GetPlayListBloc.dio(
               dio: dio,
-            )..add(const GetPlayListQuery(page: 1, lang: 'zh-tw')),
+            )..add(const GetPlayListQuery(lang: 'zh-tw')),
           ),
           BlocProvider(
             create: (_) => DownloadBloc(dio: dio),

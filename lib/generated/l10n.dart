@@ -63,6 +63,36 @@ class S {
   String get download {
     return Intl.message('Download', name: 'download', desc: '', args: []);
   }
+
+  /// `Failed to load please restart`
+  String get load_failed {
+    return Intl.message(
+      'Failed to load please restart',
+      name: 'load_failed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No data`
+  String get no_data {
+    return Intl.message('No data', name: 'no_data', desc: '', args: []);
+  }
+
+  /// `No more data`
+  String get no_more_data {
+    return Intl.message(
+      'No more data',
+      name: 'no_more_data',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Funday`
+  String get funday {
+    return Intl.message('Funday', name: 'funday', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

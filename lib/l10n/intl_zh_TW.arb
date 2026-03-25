@@ -1,5 +1,9 @@
 {
   "@@locale": "zh_TW",
   "play": "播放",
-  "download": "下載"
+  "download": "下載",
+  "load_failed": "加載失敗請重開",
+  "no_data": "沒有資料",
+  "no_more_data": "沒有更多資料",
+  "funday": "Funday"
 }
