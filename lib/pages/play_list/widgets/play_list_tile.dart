@@ -5,7 +5,7 @@ import 'package:flutter_home_work/generated/l10n.dart';
 import 'package:flutter_home_work/gen/colors.gen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_home_work/bloc/play_list/play_list.dart';
-import 'package:flutter_home_work/extensions/download_state_x.dart';
+import 'package:flutter_home_work/pages/play_detail/play_detail.dart';
 
 class PlayListTile extends StatelessWidget {
   final PlayListItem item;
@@ -51,14 +51,17 @@ class PlayListTile extends StatelessWidget {
                     progress: downloadProgress,
                     onTap: () {
                       if (isDownloaded) {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) => Scaffold(
-                              appBar: AppBar(title: Text(item.title ?? '')),
-                              body: const Center(child: Text('Page 2 (Player Overlay)')),
+                        final path = state.getDownloadedPath(item.id);
+                        if (path != null) {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => PlayDetailPage(
+                                title: item.title ?? '',
+                                filePath: path,
+                              ),
                             ),
-                          ),
-                        );
+                          );
+                        }
                       } else if (!isDownloading) {
                         context.read<DownloadBloc>().add(DownloadStart(item: item));
                       }

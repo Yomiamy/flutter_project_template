@@ -37,11 +37,12 @@ class DownloadProgressUpdate extends DownloadEvent {
 
 class DownloadComplete extends DownloadEvent {
   final int id;
+  final String savePath;
 
-  const DownloadComplete({required this.id});
+  const DownloadComplete({required this.id, required this.savePath});
 
   @override
-  List<Object?> get props => [id];
+  List<Object?> get props => [id, savePath];
 }
 
 class DownloadFail extends DownloadEvent {
