@@ -15,9 +15,7 @@ part 'download_state.dart';
 class DownloadBloc extends Bloc<DownloadEvent, DownloadState> {
   final Dio _dio;
 
-  DownloadBloc({required Dio dio})
-      : _dio = dio,
-        super(const DownloadState()) {
+  DownloadBloc({required Dio dio}) : _dio = dio, super(const DownloadState()) {
     on<DownloadStart>(_onDownloadStart);
     on<DownloadProgressUpdate>(_onProgressUpdate);
     on<DownloadComplete>(_onComplete);
@@ -32,20 +30,31 @@ class DownloadBloc extends Bloc<DownloadEvent, DownloadState> {
   }
 
   FutureOr<void> _onCheckStatus(
-      DownloadCheckStatus event, Emitter<DownloadState> emit) async {
+    DownloadCheckStatus event,
+    Emitter<DownloadState> emit,
+  ) async {
     final Set<int> downloadedIds = {};
+    final Map<int, String> downloadedPaths = {};
     for (final item in event.items) {
       if (item.id == null) continue;
       final path = await _getFilePath(item);
       if (await File(path).exists()) {
         downloadedIds.add(item.id!);
+        downloadedPaths[item.id!] = path;
       }
     }
-    emit(state.copyWith(downloadedIds: downloadedIds));
+    emit(
+      state.copyWith(
+        downloadedIds: downloadedIds,
+        downloadedPaths: downloadedPaths,
+      ),
+    );
   }
 
   FutureOr<void> _onDownloadStart(
-      DownloadStart event, Emitter<DownloadState> emit) async {
+    DownloadStart event,
+    Emitter<DownloadState> emit,
+  ) async {
     final item = event.item;
 
     if (item.id == null || item.url == null) return;
@@ -67,14 +76,16 @@ class DownloadBloc extends Bloc<DownloadEvent, DownloadState> {
           }
         },
       );
-      add(DownloadComplete(id: id));
+      add(DownloadComplete(id: id, savePath: savePath));
     } catch (e) {
       add(DownloadFail(id: id, message: e.toString()));
     }
   }
 
   void _onProgressUpdate(
-      DownloadProgressUpdate event, Emitter<DownloadState> emit) {
+    DownloadProgressUpdate event,
+    Emitter<DownloadState> emit,
+  ) {
     final newProgress = Map<int, double>.from(state.progress);
     newProgress[event.id] = event.progress;
     emit(state.copyWith(progress: newProgress));
@@ -87,20 +98,28 @@ class DownloadBloc extends Bloc<DownloadEvent, DownloadState> {
     final newDownloadedIds = Set<int>.from(state.downloadedIds);
     newDownloadedIds.add(event.id);
 
-    emit(state.copyWith(
-      progress: newProgress,
-      downloadedIds: newDownloadedIds,
-    ));
+    final newDownloadedPaths = Map<int, String>.from(state.downloadedPaths);
+    newDownloadedPaths[event.id] = event.savePath;
+
+    emit(
+      state.copyWith(
+        progress: newProgress,
+        downloadedIds: newDownloadedIds,
+        downloadedPaths: newDownloadedPaths,
+      ),
+    );
   }
 
   void _onFail(DownloadFail event, Emitter<DownloadState> emit) {
     final newProgress = Map<int, double>.from(state.progress);
     newProgress.remove(event.id);
 
-    emit(state.copyWith(
-      status: Status.failure,
-      errorMsg: event.message,
-      progress: newProgress,
-    ));
+    emit(
+      state.copyWith(
+        status: Status.failure,
+        errorMsg: event.message,
+        progress: newProgress,
+      ),
+    );
   }
 }
