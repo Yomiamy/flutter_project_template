@@ -11,6 +11,7 @@ class Sizes {
   // Icon
   static const iconS = 16.0;
   static const iconM = 24.0;
+  static const iconXXL = 64.0;
 
   // Padding & Margin
   static const paddingXXS = 2.0;
@@ -18,8 +19,10 @@ class Sizes {
   static const paddingS = 8.0;
   static const paddingM = 12.0;
   static const paddingL = 16.0;
+  static const paddingXXL = 32.0;
 
   // Font
   static const fontSizeS = 12.0;
   static const fontSizeM = 16.0;
+  static const fontSizeXXL = 24.0;
 }
