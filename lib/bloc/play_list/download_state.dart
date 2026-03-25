@@ -29,4 +29,13 @@ class DownloadState extends Equatable {
 
   @override
   List<Object?> get props => [status, errorMsg, progress, downloadedIds];
+
+extension DownloadStateX on DownloadState {
+  bool isDownloaded(int? id) => downloadedIds.contains(id);
+
+  double? getDownloadProgress(int? id) => progress[id];
+
+  bool isDownloading(int? id) => progress.containsKey(id);
+
+  String? getDownloadedPath(int? id) => downloadedPaths[id];
 }
