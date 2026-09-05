@@ -3,9 +3,9 @@ import 'dart:async';
 import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_home_work/bloc/status.dart';
-import 'package:flutter_home_work/data/paly_list/dto/dto.dart';
-import 'package:flutter_home_work/data/paly_list/play_list_api.dart';
+import 'package:flutter_project_template/bloc/status.dart';
+import 'package:flutter_project_template/data/paly_list/dto/dto.dart';
+import 'package:flutter_project_template/data/paly_list/play_list_api.dart';
 import 'package:logger/logger.dart';
 
 part 'get_play_list_event.dart';

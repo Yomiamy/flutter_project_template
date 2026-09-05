@@ -4,8 +4,8 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_home_work/bloc/status.dart';
-import 'package:flutter_home_work/data/paly_list/dto/dto.dart';
+import 'package:flutter_project_template/bloc/status.dart';
+import 'package:flutter_project_template/data/paly_list/dto/dto.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart';
 

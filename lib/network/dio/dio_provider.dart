@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_home_work/network/interceptors/log_interceptor.dart';
+import 'package:flutter_project_template/network/interceptors/log_interceptor.dart';
 
 class DioProvider {
   static final DioProvider _instance = DioProvider._internal();

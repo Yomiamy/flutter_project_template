@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_home_work/bloc/bloc.dart';
-import 'package:flutter_home_work/constants/constants.dart';
-import 'package:flutter_home_work/pages/play_list/widgets/widgets.dart';
-import 'package:flutter_home_work/gen/colors.gen.dart';
-import 'package:flutter_home_work/generated/l10n.dart';
+import 'package:flutter_project_template/bloc/bloc.dart';
+import 'package:flutter_project_template/constants/constants.dart';
+import 'package:flutter_project_template/pages/play_list/widgets/widgets.dart';
+import 'package:flutter_project_template/gen/colors.gen.dart';
+import 'package:flutter_project_template/generated/l10n.dart';
 
 class PlayListView extends StatefulWidget {
   const PlayListView({super.key});
