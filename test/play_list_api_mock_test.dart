@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:dio/dio.dart';
 import 'package:http_mock_adapter/http_mock_adapter.dart';
-import 'package:flutter_home_work/data/paly_list/play_list_api.dart';
+import 'package:flutter_project_template/data/paly_list/play_list_api.dart';
 
 void main() {
   group('PlayListApi test group', () {

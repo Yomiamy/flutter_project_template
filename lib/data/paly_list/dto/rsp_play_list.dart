@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter_home_work/data/paly_list/dto/dto.dart';
+import 'package:flutter_project_template/data/paly_list/dto/dto.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'rsp_play_list.g.dart';

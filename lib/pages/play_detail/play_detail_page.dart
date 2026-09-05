@@ -1,8 +1,8 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_home_work/generated/l10n.dart';
-import 'package:flutter_home_work/gen/colors.gen.dart';
-import 'package:flutter_home_work/constants/constants.dart';
+import 'package:flutter_project_template/generated/l10n.dart';
+import 'package:flutter_project_template/gen/colors.gen.dart';
+import 'package:flutter_project_template/constants/constants.dart';
 
 class PlayDetailPage extends StatefulWidget {
   final String title;

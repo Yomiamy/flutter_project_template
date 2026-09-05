@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_home_work/constants/constants.dart';
-import 'package:flutter_home_work/data/paly_list/dto/dto.dart';
-import 'package:flutter_home_work/generated/l10n.dart';
-import 'package:flutter_home_work/gen/colors.gen.dart';
+import 'package:flutter_project_template/constants/constants.dart';
+import 'package:flutter_project_template/data/paly_list/dto/dto.dart';
+import 'package:flutter_project_template/generated/l10n.dart';
+import 'package:flutter_project_template/gen/colors.gen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_home_work/bloc/play_list/play_list.dart';
-import 'package:flutter_home_work/pages/play_detail/play_detail.dart';
+import 'package:flutter_project_template/bloc/play_list/play_list.dart';
+import 'package:flutter_project_template/pages/play_detail/play_detail.dart';
 
 class PlayListTile extends StatelessWidget {
   final PlayListItem item;

@@ -1,4 +1,4 @@
-# Flutter Home Work
+# Flutter Project Template
 
 這個專案展示了一個結構穩固、具備良好架構品味 (Good Taste) 的音頻播放清單應用。它不只是將功能完成，更專注於**資料流向控制**、**零依賴 UI** 與**跨元件通訊**的優雅設計。
 

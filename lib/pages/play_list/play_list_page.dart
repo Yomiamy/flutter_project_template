@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_home_work/bloc/bloc.dart';
+import 'package:flutter_project_template/bloc/bloc.dart';
 
-import 'package:flutter_home_work/pages/play_list/widgets/widgets.dart';
-import 'package:flutter_home_work/generated/l10n.dart';
+import 'package:flutter_project_template/pages/play_list/widgets/widgets.dart';
+import 'package:flutter_project_template/generated/l10n.dart';
 
-import 'package:flutter_home_work/network/network.dart';
+import 'package:flutter_project_template/network/network.dart';
 
 class PlayListPage extends StatelessWidget {
   const PlayListPage({super.key});
