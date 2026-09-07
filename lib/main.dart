@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'generated/l10n.dart';
+import 'network/network.dart';
 import 'pages/play_list/play_list.dart';
 
 void main() {
+  DioProvider.init(baseUrl: 'https://www.travel.taipei');
   runApp(const MyApp());
 }
 
