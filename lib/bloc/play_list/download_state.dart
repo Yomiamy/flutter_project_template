@@ -32,7 +32,13 @@ class DownloadState extends Equatable {
   }
 
   @override
-  List<Object?> get props => [status, errorMsg, progress, downloadedIds, downloadedPaths];
+  List<Object?> get props => [
+    status,
+    errorMsg,
+    progress,
+    downloadedIds,
+    downloadedPaths,
+  ];
 }
 
 extension DownloadStateX on DownloadState {

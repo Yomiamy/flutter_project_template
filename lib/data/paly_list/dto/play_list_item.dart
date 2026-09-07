@@ -37,7 +37,7 @@ class PlayListItem extends Equatable {
       fileExt: fileExt ?? this.fileExt,
       modified: modified ?? this.modified,
     );
-  } 
+  }
 
   factory PlayListItem.fromJson(Map<String, dynamic> json) =>
       _$PlayListItemFromJson(json);
@@ -45,12 +45,5 @@ class PlayListItem extends Equatable {
   Map<String, dynamic> toJson() => _$PlayListItemToJson(this);
 
   @override
-  List<Object?> get props => [
-    id,
-    title,
-    summary,
-    url,
-    fileExt,
-    modified,
-  ];
+  List<Object?> get props => [id, title, summary, url, fileExt, modified];
 }

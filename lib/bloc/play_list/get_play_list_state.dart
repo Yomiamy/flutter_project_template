@@ -36,5 +36,6 @@ final class GetPlayListState extends Equatable {
 }
 
 extension GetPlayListStateX on GetPlayListState {
-  bool get hasMore => total == null || (playListItem?.length ?? 0) < (total ?? 0);
+  bool get hasMore =>
+      total == null || (playListItem?.length ?? 0) < (total ?? 0);
 }

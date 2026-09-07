@@ -10,10 +10,7 @@ import 'package:flutter_project_template/pages/play_detail/play_detail.dart';
 class PlayListTile extends StatelessWidget {
   final PlayListItem item;
 
-  const PlayListTile({
-    super.key,
-    required this.item,
-  });
+  const PlayListTile({super.key, required this.item});
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +60,9 @@ class PlayListTile extends StatelessWidget {
                           );
                         }
                       } else if (!isDownloading) {
-                        context.read<DownloadBloc>().add(DownloadStart(item: item));
+                        context.read<DownloadBloc>().add(
+                          DownloadStart(item: item),
+                        );
                       }
                     },
                   ),
@@ -135,7 +134,9 @@ class _ActionButton extends StatelessWidget {
             Text(
               isDownloading
                   ? '${((progress ?? 0) * 100).toInt()}%'
-                  : (isDownloaded ? S.of(context).play : S.of(context).download),
+                  : (isDownloaded
+                        ? S.of(context).play
+                        : S.of(context).download),
               style: const TextStyle(
                 fontSize: Sizes.fontSizeS,
                 fontWeight: FontWeight.w500,
@@ -148,6 +149,3 @@ class _ActionButton extends StatelessWidget {
     );
   }
 }
-
-
-
