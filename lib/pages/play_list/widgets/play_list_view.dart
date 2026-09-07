@@ -38,10 +38,8 @@ class _PlayListViewState extends State<PlayListView> {
       final state = context.read<GetPlayListBloc>().state;
       if (!state.status.isLoading && state.hasMore) {
         context.read<GetPlayListBloc>().add(
-              const GetPlayListQuery(
-                lang: 'zh-tw',
-              ),
-            );
+          const GetPlayListQuery(lang: 'zh-tw'),
+        );
       }
     }
   }

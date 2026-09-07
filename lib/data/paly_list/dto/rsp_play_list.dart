@@ -9,20 +9,11 @@ class RspPlayList extends Equatable {
   final int? total;
   final List<PlayListItem>? data;
 
-  const RspPlayList({
-    this.total,
-    this.data,
-  });
+  const RspPlayList({this.total, this.data});
 
-  RspPlayList copyWith({
-    int? total,
-    List<PlayListItem>? data,
-  }) {
-    return RspPlayList(
-      total: total ?? this.total,
-      data: data ?? this.data,
-    );
-  } 
+  RspPlayList copyWith({int? total, List<PlayListItem>? data}) {
+    return RspPlayList(total: total ?? this.total, data: data ?? this.data);
+  }
 
   factory RspPlayList.fromJson(Map<String, dynamic> json) =>
       _$RspPlayListFromJson(json);
